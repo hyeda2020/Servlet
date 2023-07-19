@@ -8,6 +8,9 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
+/**
+ * HttpServlet 기본 사용법
+ */
 @WebServlet(name = "helloServlet", urlPatterns = "/hello") // 서블릿 애노테이션, name : 서블릿 이름, urlPatterns : URL매핑
 public class HelloServlet extends HttpServlet {
 
