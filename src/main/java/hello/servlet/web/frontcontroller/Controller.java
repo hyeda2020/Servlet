@@ -6,8 +6,7 @@ public interface Controller {
 
     /**
      * @param paramMap
-     * @param model
      * @return viewName
      */
-    String process(Map<String, String> paramMap, Map<String, Object> model);
+    ModelView process(Map<String, String> paramMap);
 }

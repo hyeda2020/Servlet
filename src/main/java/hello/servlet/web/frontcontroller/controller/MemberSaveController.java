@@ -3,6 +3,7 @@ package hello.servlet.web.frontcontroller.controller;
 import hello.servlet.domain.member.Member;
 import hello.servlet.domain.member.MemberRepository;
 import hello.servlet.web.frontcontroller.Controller;
+import hello.servlet.web.frontcontroller.ModelView;
 
 import java.util.Map;
 
@@ -11,7 +12,7 @@ public class MemberSaveController implements Controller {
     MemberRepository memberRepository = MemberRepository.getInstance();
 
     @Override
-    public String process(Map<String, String> paramMap, Map<String, Object> model) {
+    public ModelView process(Map<String, String> paramMap) {
 
         String username = paramMap.get("username");
         int age = Integer.parseInt(paramMap.get("age"));
@@ -19,8 +20,9 @@ public class MemberSaveController implements Controller {
         Member member = new Member(username, age);
         memberRepository.save(member);
 
-        model.put("member", member);
+        ModelView mv = new ModelView("save-result");
+        mv.getModel().put("member", member);
 
-        return "save-result"; // viewPath 리턴
+        return mv;
     }
 }
